@@ -2,6 +2,7 @@ const express = require("express");
 const helmet = require("helmet");
 
 const cohortsRouter = require('./routers/cohorts-router');
+const studentsRouter = require('./routers/students-router');
 
 const server = express();
 
@@ -15,6 +16,7 @@ server.get("/", (req, res) => {
 });
 
 server.use('/api/cohorts', cohortsRouter);
+server.use('/api/students', studentsRouter);
 
 
 const port = process.env.PORT || 5000;
