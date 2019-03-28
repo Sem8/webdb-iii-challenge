@@ -87,7 +87,9 @@ router.delete("/:id", async (req, res) => {
     } else {
       res.status(404).json({ message: "Cohort not found" });
     }
-  } catch (error) {}
+  } catch (error) {
+    res.status(500).json({ error: `Error occurred while deleting cohort: ${error}` });
+  }
 });
 
 router.get("/:id/students", async (req, res) => {

@@ -65,7 +65,11 @@ studentsRouter.put("/:id", async (req, res) => {
     } else {
       res.status(404).json({ message: "Record not found" });
     }
-  } catch (error) {}
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: `Error occurred while updating student: ${error}` });
+  }
 });
 
 studentsRouter.delete("/:id", async (req, res) => {
@@ -79,7 +83,11 @@ studentsRouter.delete("/:id", async (req, res) => {
     } else {
       res.status(404).json({ message: "Record not found" });
     }
-  } catch (error) {}
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: `Error occurred while deleting student: ${error}` });
+  }
 });
 
 module.exports = studentsRouter;
